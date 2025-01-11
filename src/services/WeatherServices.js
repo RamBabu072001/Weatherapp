@@ -1,11 +1,11 @@
 import { DateTime } from "luxon";
 
 const BASE_URL = "https://api.openweathermap.org/data/2.5/";
-const API_KEY = "22fdfdd55a20a96efa5b8a61e13310b9";
+
 
 const getWeatherData =( info , Searchparams)=>{
         const url = new URL(BASE_URL + info);
-        url.search = new URLSearchParams({...Searchparams , appid: API_KEY})
+        url.search = new URLSearchParams({...Searchparams , appid: import.meta.env.VITE_API_KEY})
     
         
         return fetch(url).then((res)=> res.json()).then((data)=> data);
